@@ -17,7 +17,7 @@ class DataController extends Controller
     }
 
     public function getData(){
-        $data = new Data;
-        return view('data',['data' => $data->where('name','!=','Капитан Марвел')->get()]);
+        $data = new User;
+        return view('data',['data' => $data->posts()->get()]);
     }
 }

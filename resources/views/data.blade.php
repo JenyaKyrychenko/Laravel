@@ -9,12 +9,17 @@
 </head>
 <body>
 <div>
+
+    <h1>{{$user->name}}</h1>
+
     @foreach($data as $d)
         <dl>
             <dt>{{$d->name}} {{$d->second_name}}</dt>
             <dd>{{$d->message}}</dd>
         </dl>
         @endforeach
+
+
 </div>
 </body>
 </html>
