@@ -6,20 +6,33 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Data</title>
+    <link rel="stylesheet" href="{{asset('/css/user.css')}}">
 </head>
 <body>
 <div>
 
-    <h1>{{$user->name}}</h1>
+        @foreach($users as $d)
+               <p><strong>{{$d->name}}  {{$d->second_name}}</strong></p>
+                @foreach($d->posts as $p)
+                    <menu>
+                        <li>{{$p->message}} </li>
+                    </menu>
 
-    @foreach($data as $d)
-        <dl>
-            <dt>{{$d->name}} {{$d->second_name}}</dt>
-            <dd>{{$d->message}}</dd>
-        </dl>
+                @endforeach
         @endforeach
 
 
+</div>
+
+<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+
+<div>
+    @foreach($data as $d)
+        <p><strong>{{$d->name}}</strong></p>
+            <menu>
+                <li>{{$d->user->name}} </li>
+            </menu>
+    @endforeach
 </div>
 </body>
 </html>

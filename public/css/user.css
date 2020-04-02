@@ -1,0 +1,9 @@
+
+.secondDiv{
+    opacity: 0;
+ }
+.secondDiv:hover{
+    opacity: 1;
+}
+
+

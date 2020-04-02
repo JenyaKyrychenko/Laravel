@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Data;
 
 class UserController extends Controller
 {
@@ -16,9 +17,10 @@ class UserController extends Controller
     }
 
     public function getUser(){
-        $user = User::find(1);
-        $users = $user->posts;
-        return view('data',['data' => $users,'user'=>$user]);
+
+        $user = User::all();
+        $data = Data::all();
+        return view('data',['users'=>$user,'data'=>$data]);
     }
 
 }
