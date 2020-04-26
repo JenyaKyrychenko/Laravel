@@ -17,7 +17,13 @@ Route::get('/post/2', function () {
 });
 
 Route::get('/pages', function() {
-    return view('PagesContent',['content' => null]);
+    return view('PagesContent',['content' => null, 'eng' => false]);
 });
+
+Route::get('/pages/eng', function() {
+    return view('PagesContent',['content' => null,'eng' => true]);
+});
+
+Route::get('/pages/eng/{url}', 'ControllerCMS@getEnglishContent');
 
 Route::get('/pages/{url}', 'ControllerCMS@getContent');

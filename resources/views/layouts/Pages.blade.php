@@ -10,15 +10,23 @@
 </head>
 <body>
 <header>
-    <h1 align="center">
-        Header
-    </h1>
+    @if($eng == false)
     <nav am-layout="horizontal">
         <a href="http://homestead.test/pages/animal">Животные</a>
         <a href="http://homestead.test/pages/sport">Спорт</a>
         <a href="http://homestead.test/pages/business">Бизнес</a>
         <a href="http://homestead.test/pages/education">Образование</a>
+        <a href="http://homestead.test/pages/eng" class="EngA">Английская версия</a>
     </nav>
+    @elseif($eng == true)
+        <nav am-layout="horizontal">
+            <a href="http://homestead.test/pages/eng/animal">Animal</a>
+            <a href="http://homestead.test/pages/eng/sport">Sport</a>
+            <a href="http://homestead.test/pages/eng/business">Business</a>
+            <a href="http://homestead.test/pages/eng/education">Education</a>
+            <a href="http://homestead.test/pages" class="RusA">Russian version</a>
+        </nav>
+        @endif
 </header>
 <main>
     <article>

@@ -486,6 +486,9 @@ footer {
     align-content: flex-start;
     position: relative;
 }
+
+
+
 header {
     -webkit-align-self: flex-start;
     -ms-flex-item-align: start;
@@ -1042,6 +1045,7 @@ nav[am-layout][am-layout~="horizontal"] a {
     -ms-flex: 1 8.3333%;
     flex: 1 8.3333%;
 }
+
 nav[am-layout][am-layout~="vertical"] {
     -webkit-flex-flow: column nowrap;
     -ms-flex-flow: column nowrap;

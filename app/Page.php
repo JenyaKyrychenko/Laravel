@@ -8,6 +8,6 @@ class Page extends Model
 {
     public function render($url){
         $content = Page::get()->where('url', $url);
-        return view('PagesContent',['content' => $content]);
+        return view('PagesContent',['content' => $content, 'eng' => false]);
     }
 }
