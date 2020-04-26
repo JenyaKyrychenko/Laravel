@@ -22,6 +22,11 @@
             <input type="text" name="message" placeholder="Enter your message" id="message" class="form-control">
         </div>
 
+        <div class="form-group">
+            <label for="message">Enter user ID</label>
+            <input type="text" name="user_id" placeholder="Enter User ID" id="user_id" class="form-control">
+        </div>
+
         <button type="submit" class="btn-success">Input</button>
     </form>
 @endsection

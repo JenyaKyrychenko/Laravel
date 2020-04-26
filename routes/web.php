@@ -15,3 +15,9 @@ Route::get('/data','UserController@getUser')->name('data-info');
 Route::get('/post/2', function () {
     return view('SecondPost');
 });
+
+Route::get('/pages', function() {
+    return view('PagesContent',['content' => null]);
+});
+
+Route::get('/pages/{url}', 'ControllerCMS@getContent');

@@ -12,6 +12,7 @@ class DataController extends Controller
         $data->name = $request->input('name');
         $data->second_name = $request->input('second-name');
         $data->message = $request->input('message');
+        $data->user_id = $request->input('user_id');
 
         $data->save();
     }
