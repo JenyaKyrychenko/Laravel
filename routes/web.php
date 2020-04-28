@@ -27,3 +27,7 @@ Route::get('/pages/eng', function() {
 Route::get('/pages/eng/{url}', 'ControllerCMS@getEnglishContent');
 
 Route::get('/pages/{url}', 'ControllerCMS@getContent');
+
+
+Route::get('/category', 'ControllerCMS@category');
+

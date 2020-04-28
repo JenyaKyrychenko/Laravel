@@ -17,7 +17,6 @@ class UserController extends Controller
     }
 
     public function getUser(){
-
         $user = User::all();
         $data = Data::all();
         return view('data',['users'=>$user,'data'=>$data]);

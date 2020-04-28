@@ -12,7 +12,6 @@
             <h1 align="center">{{$c->caption}}</h1>
             <p align="center">{{$c->content}}</p>
         @endforeach
-
-
     @endif
+
 @endsection

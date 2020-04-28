@@ -12,8 +12,13 @@ class Page extends Model
         return view('PagesContent',['content' => $content, 'eng' => false]);
     }
 
-    public function  renderEngContent($url){
+    public function renderEngContent($url){
         $content = DB::table('page_englishes')->get()->where('url',$url);
         return view('PagesContent',['content' => $content, 'eng' => true]);
     }
+
+    public function children(){
+        return $this->hasMany(self::class,'parent_id');
+    }
+
 }

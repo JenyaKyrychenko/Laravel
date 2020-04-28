@@ -17,6 +17,7 @@
         <a href="http://homestead.test/pages/business">Бизнес</a>
         <a href="http://homestead.test/pages/education">Образование</a>
         <a href="http://homestead.test/pages/eng" class="EngA">Английская версия</a>
+        <a href="http://homestead.test/category">Category</a>
     </nav>
     @elseif($eng == true)
         <nav am-layout="horizontal">
