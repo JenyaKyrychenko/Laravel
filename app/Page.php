@@ -21,4 +21,9 @@ class Page extends Model
         return $this->hasMany(self::class,'parent_id');
     }
 
+    public function getAll(){
+        $pages = DB::table('pages')->get();
+        return view('index',['pages'=>$pages]);
+    }
+
 }
