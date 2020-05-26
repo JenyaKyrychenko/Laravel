@@ -11,13 +11,17 @@
     <title>Admin</title>
 </head>
 <body>
-
+@foreach($data as $d)
 <div style="width: 150px; margin: 50px;">
 <a href="http://homestead.test/admin"><--- to Admin Panel</a>
 </div>
+<div style="width: 150px; margin: 50px;">
+    @if($d->parent_id != 0)
+    <a href="http://homestead.test/update/{{$d->parent_id}}">^^^ to Parent</a>
+        @endif
+</div>
 
 <div class="content" style="padding: 50px">
-    @foreach($data as $d)
         <table class="table table-bordered">
             <thead class="thead-dark">
             <tr>
@@ -26,6 +30,7 @@
                 <th scope="col">caption <a href="http://homestead.test/update/{{$d->id}}/caption">Edit</a> </th>
                 <th scope="col">intro <a href="http://homestead.test/update/{{$d->id}}/intro">Edit</a> </th>
                 <th scope="col">content <a href="http://homestead.test/update/{{$d->id}}/content">Edit</a> </th>
+                <th scope="col">parent_id <a href="http://homestead.test/update/{{$d->id}}/parent_id">Edit</a> </th>
             </tr>
             </thead>
             <tbody>
@@ -35,7 +40,11 @@
                 <td>{{$d->caption}}</td>
                 <td>{{$d->intro}}</td>
                 <td>{{$d->content}}</td>
+                <td>{{$d->parent_id}}</td>
             </tr>
+            @if($d->children->count()>0)
+                @include('includes.updateCatalog',['category'=>$d->children])
+                @endif
             </tbody>
         </table>
     @endforeach
@@ -47,6 +56,8 @@
                 @yield('intro')
             @elseif($editParam == 'content')
                 @yield('content')
+                @elseif($editParam == 'parent_id')
+                    @yield('parent_id')
     @endif
 </div>
 

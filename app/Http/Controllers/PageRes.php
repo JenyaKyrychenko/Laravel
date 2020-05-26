@@ -15,7 +15,7 @@ class PageRes extends Controller
     public function index()
     {
         $page = new Page();
-        return $page->getAll();
+        return view('index',['pages' => $page->with('children')->where('parent_id',0)->get()]);
     }
 
     /**
@@ -30,6 +30,7 @@ class PageRes extends Controller
         $page->caption = $request->input('caption');
         $page->intro = $request->input('intro');
         $page->content = $request->input('content');
+        $page->parent_id = $request->input('parent_id');
 
 
         $page->save();
@@ -85,8 +86,8 @@ class PageRes extends Controller
 
     public function getById($id,$editParam = null)
     {
-        $data = Page::where('id',$id)->get();
-        return view('update',['data'=>$data,'editParam'=>$editParam]);
+        $data = new Page();
+        return view('update',['data'=>$data->with('children')->where('id',$id)->get(),'editParam'=>$editParam]);
     }
 
 
@@ -96,9 +97,9 @@ class PageRes extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($url)
+    public function destroy($id)
     {
-        Page::find($url)->delete();
+        Page::find($id)->delete();
         return back();
     }
 }

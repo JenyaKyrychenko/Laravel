@@ -43,6 +43,6 @@ Route::get('/update/{id}', 'PageRes@getById');
 
 Route::post('/update/new/{id}/{editParam}','PageRes@update');
 
-Route::get('/delete/{url}','PageRes@destroy');
+Route::get('/delete/{id}','PageRes@destroy');
 
 Route::get('/update/{id}/{editParam}', 'PageRes@getById');

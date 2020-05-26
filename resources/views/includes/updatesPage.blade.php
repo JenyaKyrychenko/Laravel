@@ -43,4 +43,14 @@
         <button type="submit" class="btn-success">Update</button>
     </form>
 @endsection
+@section('parent_id')
+    <form action="/update/new/{{$d->id}}/parent_id" method="post">
+        @csrf
+        <div class="form-group">
+            <label for="parent_id">Parent ID</label>
+            <input type="text" name="parent_id" placeholder="Enter new parent ID" id="parent_id" class="form-control">
+        </div>
+        <button type="submit" class="btn-success">Update</button>
+    </form>
+@endsection
 @endforeach

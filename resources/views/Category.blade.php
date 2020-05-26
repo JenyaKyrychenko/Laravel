@@ -19,6 +19,20 @@
                 <a href="http://homestead.test/pages/{{$c->url}}">
                     <li>{{$c->caption}}</li>
                 </a>
+                @foreach($c->children as $y)
+                    <ul>
+                        <a href="http://homestead.test/pages/{{$y->url}}">
+                            <li>{{$y->caption}}</li>
+                        </a>
+                        @foreach($y->children as $x)
+                            <ul>
+                                <a href="http://homestead.test/pages/{{$x->url}}">
+                                    <li>{{$x->caption}}</li>
+                                </a>
+                            </ul>
+                        @endforeach
+                    </ul>
+                @endforeach
             </ul>
         @endforeach
     @endforeach

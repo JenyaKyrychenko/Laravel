@@ -32,22 +32,29 @@
                 <label for="content">content</label>
                 <input type="text" name="content" placeholder="Enter content" id="content" class="form-control">
             </div>
+            <div class="form-group">
+                <label for="parent_id">Parent ID</label>
+                <input type="text" name="parent_id" placeholder="Enter content" id="parent_id" class="form-control">
+            </div>
             <button type="submit" class="btn-success">Add</button>
         </form>
     </div>
     <hr>
     <h2>Pages List</h2>
     <div>
-    <menu>
+        <ul>
         @foreach($pages as $p)
+            <li>
                 <form action="http://homestead.test/delete/{{$p->id}}">
-                <button>delete</button>
                     <a href="http://homestead.test/update/{{$p->id}}">{{$p->caption}}</a>
+                    <button class="btn btn-outline-danger" style="margin-left: 20px">X</button>
                 </form>
-            <br>
-
+            </li>
+            @if($p->children->count()>0)
+                @include('includes.catalog',['category'=>$p->children])
+                @endif
             @endforeach
-    </menu>
+        </ul>
     </div>
 </div>
 </body>
